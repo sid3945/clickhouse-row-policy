@@ -1,0 +1,6 @@
+1. Make sure config.xml and user.xml is relevant to your use case.
+2a. CREATE ROLE seller;
+2b. grant select on databaseName.tableName to seller;
+2C. CREATE USER <access-restricted-user> IDENTIFIED BY '<your-password>';
+2d. grant seller to <access-restricted-user>;
+2e. CREATE ROW POLICY user_filter_seller ON databaseName.tableName USING user_id=getSetting('custom_user_id') TO seller;
